@@ -244,6 +244,11 @@ board.on('ready', function(){
         }
     });
 
+    var fiveSwitch = new five.Switch({
+        pin: 1,
+        type: 'NO'
+    });
+
     var temperature = new five.Temperature({
         pin: "A0",
         toCelsius: function(raw) { // optional

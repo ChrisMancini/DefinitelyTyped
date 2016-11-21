@@ -573,6 +573,22 @@ export declare class Stepper {
     on(event: "change", cb: () => void): void;
 }
 
+export interface SwitchOption {
+    pin: string | number;
+    type: "NC" | "NO"
+}
+
+export declare class Switch {
+    constructor(option: number | string | SwitchOption);
+    on(event: string, cb: () => void): void;
+    on(event: "open", cb: () => void): void;
+    on(event: "close", cb: () => void): void;
+
+    value: number;
+    isClosed: boolean;
+    isOpen: boolean;
+}
+
 export interface TemperatureOption {
     controller?: string;
     pin: string | number;
