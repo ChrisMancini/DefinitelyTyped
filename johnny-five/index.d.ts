@@ -137,6 +137,14 @@ export declare class ESC {
     stop(): void;
 }
 
+export interface ExpanderOption {
+    controller: string;
+    address: number;
+}
+export declare class Expander extends Board {
+    constructor(option?: string | ExpanderOption);
+}
+
 export interface GyroGeneralOption {
     controller?: string;
 }
@@ -571,6 +579,17 @@ export declare class Stepper {
     on(event: string, cb: () => void): this;
     on(event: "data", cb: (data: any) => void): this;
     on(event: "change", cb: () => void): this;
+}
+export interface SwitchOption {
+    pin: string | number;
+    type: string | "NC" | "NO"
+}
+
+export declare class Switch {
+    constructor(option: number | string | SwitchOption);
+    on(event: string, cb: () => void): this;
+    on(event: "open", cb: (data: any) => void): this;
+    on(event: "close", cb: () => void): this;
 }
 
 export interface TemperatureOption {
